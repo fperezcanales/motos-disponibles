@@ -7,6 +7,9 @@ module.exports = {
       health: {
         auth: `${config.backend.url}/health`,
       },
+      locations: {
+        regions: `${config.backend.url}/locations/regions`,
+      },
     },
   },
 };
