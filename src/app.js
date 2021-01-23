@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -6,8 +7,13 @@ const cors = require('cors');
 const endpoints = require('./endpoints');
 const api = require('./api');
 
+const mongoose = require('mongoose');
+const config = require('./config');
+
+
 // main router
 const app = express();
+
 
 // setup the middlewares
 app.use(cors());
@@ -19,5 +25,9 @@ app.use(express.static(path.join(__dirname, '../build')));
 app.use('/api', api);
 app.get('/health', endpoints.health.check);
 app.get('*', endpoints.assets);
+
+console.log(config.db.url);
+
+mongoose.connect(config.db.url);
 
 module.exports = app;
