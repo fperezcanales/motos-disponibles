@@ -12,9 +12,9 @@ async function save(document, headers) {
     return response.data.document;
 }
 
-async function query(type, queries, headers) {
+/*async function query(type, queries, headers) {
     const response = await axios.post(urls.backend.api.documents.query, { type, queries }, { headers });
     return response.data.documents;
-}
+}*/
 
-module.exports = { get, save, query };
+module.exports = { get, save };
