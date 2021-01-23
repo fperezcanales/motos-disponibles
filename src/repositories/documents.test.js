@@ -35,7 +35,7 @@ describe('Documents', () => {
         const response = await documents.save(doc, headers);
 
         expect(response).toEqual(axiosRes.data.document);
-        expect(axios.post).toBeCalledWith(urls.backend.api.documents.save, doc, {
+        expect(axios.post).toBeCalledWith(urls.backend.api.health.auth, doc, {
             headers: { 'x-user-token': 'fake-token', 'x-request-id': 'fake-token' },
         });
     });
@@ -64,7 +64,7 @@ describe('Documents', () => {
         const response = await documents.get(id, headers);
 
         expect(response).toEqual(axiosRes.data.document);
-        expect(axios.get).toBeCalledWith(format(urls.backend.api.documents.get, id), {
+        expect(axios.get).toBeCalledWith(format(urls.backend.api.health.auth, id), {
             headers: { 'x-user-token': 'fake-token', 'x-request-id': 'fake-token' },
         });
     });
